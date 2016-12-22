@@ -3,7 +3,7 @@
     "tslint.enable": true,
     "tslint.configFile": "./tslint.json",
     "tslint.autoFixOnSave": false,
-    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+    "typescript.tsdk": "./node_modules/typescript/lib",
     "editor.formatOnType": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
