@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "tslint.enable": true,
+    "tslint.configFile": "./tslint.json",
+    "tslint.autoFixOnSave": false,
+    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+    "editor.formatOnType": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true
+} 

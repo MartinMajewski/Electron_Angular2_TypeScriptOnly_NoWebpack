@@ -1,0 +1,20 @@
+{
+	"rules": {
+		"object-literal-shorthand": true,
+		"no-unused-variable": [
+			true
+		],
+		"no-use-before-declare": true,
+		"eofline": true,
+		"curly": true,
+		"class-name": true,
+		"semicolon": ["never","ignore-bound-class-methods","ignore-interfaces"],
+		"triple-equals": true,
+		"align": [
+			true,
+			"parameters",
+			"arguments",
+			"statements"
+		]
+	}
+}

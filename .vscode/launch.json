@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Main Process (Launch)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080/",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/dist"
+        },
+        {
+            "name": "Debug Main Process (Attach)",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "sourceMaps": true,
+            "url": "http://localhost:8080/",
+            "webRoot": "${workspaceRoot}/dist"
+        },
+        {
+            "name": "Debug Renderer Process (Launch)",
+            "type": "chrome",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+            "runtimeArgs": [
+                "${workspaceRoot}/dist",
+                "--enable-logging",
+                "--host-rules='MAP * 127.0.0.1'",
+                "--remote-debugging-port=9222"
+            ],
+            "webRoot": "${workspaceRoot}/dist",
+            "sourceMaps": true,
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}
