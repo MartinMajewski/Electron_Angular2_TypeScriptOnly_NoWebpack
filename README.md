@@ -27,7 +27,7 @@ npm run-script electronBuild
 
 ```
 
-# What does the electronBuild script does?
+# What does the electronBuild script do?
 
 It fires up the TypeScript compiler, that reads the tsconfig.json file from the project's folder.
 The compiler "transpiles" all TypeScript (.ts) files into JavaScript files, placing them into the /dist folder.
