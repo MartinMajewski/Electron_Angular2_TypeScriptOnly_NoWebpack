@@ -39,7 +39,6 @@ export class AppModule {
     // You probably only want to expose this tool in devMode.
     if (__DEV_MODE__ && devTools.isEnabled()) {
       enhancers = [ ...enhancers, devTools.enhancer() ];
-      
     }
 
     this.ngRedux.configureStore(
@@ -48,7 +47,7 @@ export class AppModule {
       middleware,
       enhancers);
     
-    debugger
+    //debugger
   }
   
 }

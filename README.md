@@ -23,7 +23,7 @@ npm install
 # Because this project uses node-serialport to show some low level capabilities, 
 # we have to recompile it for Electron. 
 # This has to be done only once after installing this particular node module.
-npm run-script serialport-rebuild
+npm run-script serialportRebuild
 
 # Build the application with the provided script 
 # inside of the package.json file, by running the command...

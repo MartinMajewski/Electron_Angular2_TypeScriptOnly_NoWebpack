@@ -13,7 +13,10 @@ export default class SerialPortService {
     getListOfAvailablePorts(): Promise<SerialPort.portConfig[]> {
 
         return new Promise((resolve, reject) => {
-            ipcRenderer.on('setSerialPortList', (event, args) => {
+            // register a callback that waits for the async answer of the refreshed serialport list
+            ipcRenderer.on('receivedSerialPortList', (event, args) => {
+                // You have to change all properties inside the Angular2 zone,
+                // or your views do not update
                 this.ngZone.run(() => {
                     let ports = args as SerialPort.portConfig[]
                     ports.map(port => {
@@ -29,7 +32,8 @@ export default class SerialPortService {
                 })
             })
 
-            ipcRenderer.send('getSerialPortList', "Hello again!")
+            // Send request for list refreh to the main process.            
+            ipcRenderer.send('getSerialPortList')
         })
     }
 }

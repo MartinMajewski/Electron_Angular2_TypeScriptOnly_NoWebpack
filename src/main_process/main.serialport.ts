@@ -25,6 +25,6 @@ export function getSerialPortList(event: Electron.IpcMainEvent) {
 
         // console.log('SerialPort list ---> ')
 
-        event.sender.send('setSerialPortList', ports)
+        event.sender.send('receivedSerialPortList', ports)
     });
 }

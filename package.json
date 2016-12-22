@@ -7,12 +7,12 @@
   "scripts": {
     "package": "./node_modules/electron-packager/cli.js dist CapLiper --platform=win32 --arch=all --out=dist --overwrite --version='1.2.5'",
     "pack-mac": "./node_modules/electron-packager/cli.js dist CapLiper.app --platform=darwin",
-    "serialport-rebuild": "concurrently --raw \"rm -f './node_modules/serialport/build/Release/serialport.node'\"   \"./node_modules/.bin/electron-rebuild\"  ",
+    "serialportRebuild": "concurrently --raw \"rm -f './node_modules/serialport/build/Release/serialport.node'\"   \"./node_modules/.bin/electron-rebuild\"  ",
     "copyIndexHTML": "copyfiles -u 1 './src/**/index.html' './dist/'  ",
     "copyPackageJSON": "copyfiles -u 1 './src/package.json' './dist/'  ",
     "tsc": "./node_modules/.bin/tsc",
     "copyNonTs": "npm run copyIndexHTML && npm run copyPackageJSON",
-    "electron": "electron dist",
+    "electron": "./node_modules/.bin/electron ./dist",
     "build": "npm run tsc && npm run copyNonTs && npm run electron",
     "start": "npm run copyNonTs && npm run electron"
   },

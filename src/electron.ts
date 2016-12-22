@@ -19,9 +19,6 @@ export default class MainElectronWindow {
     static ipc: Electron.IpcMain
     static BrowserWindow
 
-    // If you want to include any kind of Chrome extensions, like React Dev-Tools (see below), adjust this path to your Chrome Extensions destination folder
-    // static pathToExtensions = "/Volumes/macOS\ HD/Users/martinmajewski/Library/Application\ Support/Google/Chrome/Profile\ 1/Extensions/";
-
     private static onWindowAllClosed() {
         MainElectronWindow.application.quit()
         // Uncomment this, if you don't want the application to quit when closing the last window
@@ -49,8 +46,6 @@ export default class MainElectronWindow {
         installExtension(REDUX_DEVTOOLS)
             .then(name => console.log('Added Extension: ' + name))
             .catch(err => console.log('An error occurred: ' + err));
-
-        //MainElectronWindow.mainWindow.webContents.openDevTools({ mode: "undocked" })
 
         MainElectronWindow.mainWindow.on('unresponsive', MainElectronWindow.onUnresponsive)  
         MainElectronWindow.mainWindow.on('closed', MainElectronWindow.onClose)
@@ -80,7 +75,6 @@ export default class MainElectronWindow {
         require('electron-debug')({
             enabled: __DEV_MODE__,
             showDevTools: 'undocked',
-
         })
 
         // we pass the Electron.App object and the 
@@ -99,9 +93,7 @@ export default class MainElectronWindow {
         process.on('uncaughtException', MainElectronWindow.onUncaughtException)  
 
         ipcMain.on('getSerialPortList', (event, arg) => {
-
-            console.log(arg)
-
+            // Run the following function at the main process            
             SerialPort.getSerialPortList(event)
         })
 
