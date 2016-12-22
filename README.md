@@ -20,27 +20,37 @@ Then...
 # Install every dependency by running...
 npm install
 
+# Because this project uses node-serialport to show some low level capabilites, 
+# we have to recompile it for Electron. 
+# This has to be done only once after installing this particular node module.
+npm run-script serialport-rebuild
+
 # Build the application with the provided script 
 # inside of the package.json file, by running the command...
-npm run-script electronBuild
+npm run build
 
 
 ```
 
-# What does the electronBuild script do?
+# What does the build script do?
 
 It fires up the TypeScript compiler, that reads the tsconfig.json file from the project's folder.
 The compiler "transpiles" all TypeScript (.ts) files into JavaScript files, placing them into the /dist folder.
 Then two scripts copy the main index.html and electron's own package.json file over to the /dist folder.
 Finally the Electron executable starts running the electron.js file (declared inside electron's package.json file) and showing up the application.
 
-It is a small sample application that shows you your currently available serial ports on your computer.
-Nothing special, but it shows two main concepts of an Electron app:
+Additionally Chrome DevTools are started as well.
+As this project implements the Redux dataflow system using ng2-redux bindings, I included the redux devtool pluing as well as the Electron "devtron" plugin.
+So you can simply use the Chrome DevTools to get a lot of information about the running app and the app state.
+
+# What does this sample application demonstrate?
+
+It is a small application that shows you your currently available serial ports on the host machine.
+Nothing special, but it shows two main concepts of an Electron app that were not so clear to me at the beginning:
 
 1. Electron runs two precoesses. A main and a renderer process. Capabilites of an Electron App like accessing the harddrive, or serial ports are only available to the main process. The renderer process is still an encapsulated web page.
 2. To get access to the "low level" APIs of the main process inside your renderer process (aka. the Angular 2 part), you need to use IPC calls (similar to WebSockets).
 
-Oh, and by the way: This app implements the Redux dataflow pattern by using the ng2-redux binding and this Git repository is initialized as GitFlow.
 
 Please report errors, typos and problems as Git-Issues. Thank you.
 
