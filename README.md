@@ -51,6 +51,13 @@ Nothing special, but it shows two main concepts of an Electron app that were not
 1. Electron runs two precoesses. A main and a renderer process. Capabilites of an Electron App like accessing the harddrive, or serial ports are only available to the main process. The renderer process is still an encapsulated web page.
 2. To get access to the "low level" APIs of the main process inside your renderer process (aka. the Angular 2 part), you need to use IPC calls (similar to WebSockets).
 
+# Visual Studio Code
+
+I left my Visual Studio Code settings inside the .vscode folder for you.
+There is also a launch.json file for debugging the application from VSCode.
+I don't know if it works right now, but I will test this out and report back.
+If you are experienced with the VSCode debugger regarding an Electron app, please share your knowledge.
+
 
 Please report errors, typos and problems as Git-Issues. Thank you.
 
